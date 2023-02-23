@@ -44,6 +44,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms'; // für die Verwendung von [(ngModel)] Notwendig
 
 
 
@@ -64,6 +65,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
