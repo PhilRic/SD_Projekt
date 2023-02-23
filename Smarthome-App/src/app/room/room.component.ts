@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { TemperatureComponent } from 'src/app/components/temperature/temperature.component';
+import { LightComponent } from 'src/app/components/light/light.component';
 
 @Component({
   selector: 'app-room',
@@ -7,7 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomComponent implements OnInit {
 
-  constructor() { }
+  //den DIV Container mit der Bezeichnung Container importieren
+  @ViewChild( 'container', { read: ViewContainerRef })
+  container!: ViewContainerRef;
+  
+
+  addComponent(componentName: string, device_id: string) {
+    
+    
+    if (componentName === 'temperature') {
+      const componentRef = this.container.createComponent(TemperatureComponent);
+      componentRef.instance.device_id = device_id;
+    } else if (componentName === 'light') {
+      const componentRef = this.container.createComponent(LightComponent);
+      componentRef.instance.device_id = device_id;
+    }
+    
+    
+  }
+
 
   ngOnInit(): void {
   }

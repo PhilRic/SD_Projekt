@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 
 
@@ -8,11 +8,11 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
   styleUrls: ['./light.component.css']
 })
 export class LightComponent implements OnInit, OnDestroy {
-  tempAkt: number | undefined;
-  zielTemp: number | undefined;
+  
+  @Input() device_id: string | undefined;
   status: string = 'unknown';
-  wasserfall_isChecked = false;
-  poolbeleuchtung_isChecked = false;
+  lamp_is_checked = false;
+  
 
   constructor(private webSocketService: WebSocketServiceService) {}
 
@@ -22,15 +22,9 @@ export class LightComponent implements OnInit, OnDestroy {
     this.status = this.webSocketService.status;
     this.webSocketService.onMessage((data) => {
       console.log('received', data);
-      if (data.topic === 'temp_akt') {
-        this.tempAkt = data.payload;
+      if (data.topic === this.device_id) {
+        this.lamp_is_checked = data.payload;
       } 
-      if (data.topic === 'zieltemp') {
-        this.zielTemp = data.payload;
-      }
-      if (data.topic === 'wasserfall') {
-        this.wasserfall_isChecked = data.payload;
-      }
     });
   }
 
@@ -43,7 +37,7 @@ export class LightComponent implements OnInit, OnDestroy {
   }
 
   onToggleChange() {
-    const payload = this.wasserfall_isChecked ? 'true' : 'false';
+    const payload = this.lamp_is_checked ? 'true' : 'false';
     this.webSocketService.sendMessage(`{"payload":"${payload}","topic":"wasserfall"}`);
   }
 }

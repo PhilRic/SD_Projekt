@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component,Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-temperature',
@@ -6,11 +6,10 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
   styleUrls: ['./temperature.component.css']
 })
 export class TemperatureComponent implements OnInit, OnDestroy{
-  tempAkt: number | undefined;
-  zielTemp: number | undefined;
+  @Input() device_id: string | undefined;
+  temperatur: number | undefined;
   status: string = 'unknown';
-  wasserfall_isChecked = false;
-  poolbeleuchtung_isChecked = false;
+  
 
   constructor(private webSocketService: WebSocketServiceService) {}
 
@@ -20,8 +19,8 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.status = this.webSocketService.status;
     this.webSocketService.onMessage((data) => {
       console.log('received', data);
-      if (data.topic === 'temp_akt') {
-        this.tempAkt = data.payload;
+      if (data.topic === this.device_id) {
+        this.temperatur = data.payload;
       } 
     });
   }

@@ -1,1 +1,13 @@
-<p>room works!</p>
+<h1>Raum Komponente</h1>
+<div>
+    <label for="component">Komponente:</label>
+    <select #component>
+      <option value="temperature">Temperature</option>
+      <option value="light">Light</option>
+    </select>
+    <br>
+    <label for="device_id">Device ID:</label>
+    <input type="text" #device_id>
+    <button (click)="addComponent(component.value, device_id.value)">Hinzufügen</button>
+  </div>
+  <div #container></div>
