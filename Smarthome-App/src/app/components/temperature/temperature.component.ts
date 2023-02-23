@@ -23,12 +23,6 @@ export class TemperatureComponent implements OnInit, OnDestroy{
       if (data.topic === 'temp_akt') {
         this.tempAkt = data.payload;
       } 
-      if (data.topic === 'zieltemp') {
-        this.zielTemp = data.payload;
-      }
-      if (data.topic === 'wasserfall') {
-        this.wasserfall_isChecked = data.payload;
-      }
     });
   }
 
@@ -36,14 +30,6 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.webSocketService.close();
   }
 
-  sendMessage() {
-    this.webSocketService.sendMessage('test');
-  }
-
-  onToggleChange() {
-    const payload = this.wasserfall_isChecked ? 'true' : 'false';
-    this.webSocketService.sendMessage(`{"payload":"${payload}","topic":"wasserfall"}`);
-  }
 }
 
 
