@@ -14,15 +14,17 @@ export class RoomComponent implements OnInit {
   container!: ViewContainerRef;
   
 
-  addComponent(componentName: string, device_id: string) {
+  addComponent(componentName: string, device_id: string, name: string) {
     
     
     if (componentName === 'temperature') {
       const componentRef = this.container.createComponent(TemperatureComponent);
       componentRef.instance.device_id = device_id;
+      componentRef.instance.name = name;
     } else if (componentName === 'light') {
       const componentRef = this.container.createComponent(LightComponent);
       componentRef.instance.device_id = device_id;
+      componentRef.instance.name = name;
     }
     
     

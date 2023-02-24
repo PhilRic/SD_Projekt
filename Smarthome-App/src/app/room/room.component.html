@@ -8,6 +8,8 @@
     <br>
     <label for="device_id">Device ID:</label>
     <input type="text" #device_id>
-    <button (click)="addComponent(component.value, device_id.value)">Hinzufügen</button>
+    <label for="name">Gerätename:</label>
+    <input type="text" #name>
+    <button (click)="addComponent(component.value, device_id.value, name.value)">Hinzufügen</button>
   </div>
   <div #container></div>

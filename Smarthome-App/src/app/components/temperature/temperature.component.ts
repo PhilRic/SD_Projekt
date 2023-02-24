@@ -7,6 +7,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 })
 export class TemperatureComponent implements OnInit, OnDestroy{
   @Input() device_id: string | undefined;
+  @Input() name: string | undefined;
   temperatur: number | undefined;
   status: string = 'unknown';
   
