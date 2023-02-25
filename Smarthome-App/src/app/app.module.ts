@@ -44,9 +44,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms'; // für die Verwendung von [(ngModel)] Notwendig
+import { FormsModule } from '@angular/forms';
+import { HouseComponent } from './house/house.component';// für die Verwendung von [(ngModel)] Notwendig
 
+//Firebase
+import { AngularFireModule } from '@angular/fire/compat';
 
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 
 
 
@@ -60,6 +65,8 @@ import { FormsModule } from '@angular/forms'; // für die Verwendung von [(ngMod
     RoomComponent,
     LightRgbComponent,
     LockComponent,
+    HouseComponent
+    
     
   ],
   imports: [
@@ -96,9 +103,13 @@ import { FormsModule } from '@angular/forms'; // für die Verwendung von [(ngMod
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
