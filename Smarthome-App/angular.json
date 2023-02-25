@@ -96,6 +96,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Smarthome-App:build:production",
+            "firebaseProject": "sdprojekt-467e6",
+            "firebaseHostingSite": "sdprojekt-467e6"
+          }
         }
       }
     }

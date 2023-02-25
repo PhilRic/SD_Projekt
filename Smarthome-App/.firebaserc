@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sdprojekt-467e6": {
+      "hosting": {
+        "Smarthome-App": [
+          "sdprojekt-467e6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sdprojekt-467e6"
+  }
+}
