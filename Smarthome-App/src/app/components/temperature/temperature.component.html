@@ -1,3 +1,4 @@
-<h1>Name: {{name}}</h1>
-<h1>TemperaturAktuell: {{temperatur}}</h1>
- <!-- Muss noch jemand schön machen entwerder mit ner Prgogress Bar oder nem anmierten Termometer oder so :) -->
+<div id="divTemp" [ngStyle]="{'background': backgroundTemp}">
+	<p>{{name}}</p>
+	<p id="pTemp">{{temperatur}}</p>
+ </div>
