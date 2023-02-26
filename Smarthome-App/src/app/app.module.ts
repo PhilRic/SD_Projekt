@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PanelComponent } from './panel.component';
 import { LightComponent } from './components/light/light.component';
 import { TemperatureComponent } from './components/temperature/temperature.component';
 import { MotorComponent } from './components/motor/motor.component';
@@ -60,7 +59,6 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
-    PanelComponent,
     LightComponent,
     TemperatureComponent,
     MotorComponent,
