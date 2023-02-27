@@ -13,6 +13,7 @@ export class LightComponent implements OnInit, OnDestroy {
   @Input() name: string | undefined;
   status: string = 'unknown';
   lamp_is_checked = false;
+  background: string = 'lightgrey';
   
 
   constructor(private webSocketService: WebSocketServiceService) {}
@@ -38,6 +39,7 @@ export class LightComponent implements OnInit, OnDestroy {
   }
 
   onToggleChange() {
+    this.background = this.lamp_is_checked ? 'gold' : 'lightgrey';
     const payload = this.lamp_is_checked ? 'true' : 'false';
     this.webSocketService.sendMessage(`{"payload":"${payload}","topic":${this.device_id}"}`);
   }
