@@ -32,4 +32,8 @@ export class LightRgbComponent implements OnInit {
     this.webSocketService.close();
   }
 
+  onToggleChange() {
+    //kjsbfghjsb
+  }
+
 }
