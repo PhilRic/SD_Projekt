@@ -20,8 +20,11 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.status = this.webSocketService.status;
     this.webSocketService.onMessage((data) => {
       console.log('received', data);
+      console.log('topic', data.topic);
+      console.log('Temp', data.payload.temperature);
+
       if (data.topic === this.device_id) {
-        this.temperatur = data.payload;
+        this.temperatur = data.payload.temperature;
       } 
     });
   }
