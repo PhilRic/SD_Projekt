@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { TemperatureComponent } from 'src/app/components/temperature/temperature.component';
 import { LightComponent } from 'src/app/components/light/light.component';
+import { LightRgbComponent } from '../components/light-rgb/light-rgb.component';
 
 @Component({
   selector: 'app-room',
@@ -23,6 +24,10 @@ export class RoomComponent implements OnInit {
       componentRef.instance.name = name;
     } else if (componentName === 'light') {
       const componentRef = this.container.createComponent(LightComponent);
+      componentRef.instance.device_id = device_id;
+      componentRef.instance.name = name;
+    } else if (componentName == 'lightRGB') {
+      const componentRef = this.container.createComponent(LightRgbComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
     }
