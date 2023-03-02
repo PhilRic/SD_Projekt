@@ -26,7 +26,7 @@ export class TemperatureComponent implements OnInit, OnDestroy{
       console.log('Temp', data.payload.temperature);
 
       if (data.topic === this.device_id) {
-        this.temperatur = data.payload.temperatur;
+        this.temperatur = data.payload.temperature;
         this.changeBackground();
       } 
     });
