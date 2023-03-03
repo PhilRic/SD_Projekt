@@ -28,6 +28,7 @@ export class MotorComponent implements OnInit {
   }
 
   onToggleChange() {
+    this.webSocketService.sendMessage(`{"payload":{"active":"${this.active}","speed":"${this.speed}},"topic":"${this.device_id}"}`);
   }
 
   formatLabel(value: number) : string {
