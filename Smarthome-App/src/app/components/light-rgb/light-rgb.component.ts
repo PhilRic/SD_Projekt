@@ -4,7 +4,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-light-rgb',
   templateUrl: './light-rgb.component.html',
-  styleUrls: ['./light-rgb.component.css']
+  styleUrls: ['./light-rgb.component.css', '../components.css']
 })
 export class LightRgbComponent implements OnInit {
 
@@ -17,6 +17,10 @@ export class LightRgbComponent implements OnInit {
   constructor(private webSocketService: WebSocketServiceService) { }
 
   ngOnInit(): void {
+    if (this.name == "") {
+      this.name = "RGB-Light without Name";
+    }
+
     const host = '';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;

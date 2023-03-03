@@ -1,1 +1,8 @@
-<p>motor works!</p>
+<div id="divMotor">
+	<p id="pName">{{name}}</p>
+	<mat-slide-toggle [(ngModel)]="active" (change)="onToggleChange()"></mat-slide-toggle>
+	<br>
+	<mat-slider [min]="-100" [max]="100" [step]="1" [value]="0" [displayWith]="formatLabel">
+		<input matSliderThumb [(ngModel)]="speed">
+	</mat-slider>
+</div>

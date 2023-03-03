@@ -4,7 +4,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-lock',
   templateUrl: './lock.component.html',
-  styleUrls: ['./lock.component.css']
+  styleUrls: ['./lock.component.css', '../components.css']
 })
 export class LockComponent implements OnInit {
 
@@ -17,6 +17,10 @@ export class LockComponent implements OnInit {
   constructor(private webSocketService: WebSocketServiceService) { }
 
   ngOnInit(): void {
+    if (this.name == "") {
+      this.name = "Lock without Name";
+    }
+
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
@@ -30,6 +34,12 @@ export class LockComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.webSocketService.close();
+  }
+
+  onToggleChange() {
+    this.background = this.locked ? 'grey' : 'lightgrey';
+    const payload = this.locked ? 'true' : 'false';
+    this.webSocketService.sendMessage(`{"payload":"${payload}","topic":${this.device_id}"}`);
   }
 
 }

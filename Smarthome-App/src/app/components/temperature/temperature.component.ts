@@ -3,7 +3,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-temperature',
   templateUrl: './temperature.component.html',
-  styleUrls: ['./temperature.component.css']
+  styleUrls: ['./temperature.component.css', '../components.css']
 })
 export class TemperatureComponent implements OnInit, OnDestroy{
   @Input() device_id: string | undefined;
@@ -16,6 +16,10 @@ export class TemperatureComponent implements OnInit, OnDestroy{
   constructor(private webSocketService: WebSocketServiceService) {}
 
   ngOnInit() {
+    if (this.name == "") {
+      this.name = "Temperature without Name";
+    }
+
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;

@@ -4,7 +4,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-motor',
   templateUrl: './motor.component.html',
-  styleUrls: ['./motor.component.css']
+  styleUrls: ['./motor.component.css', '../components.css']
 })
 export class MotorComponent implements OnInit {
 
@@ -12,6 +12,8 @@ export class MotorComponent implements OnInit {
   @Input() name: string | undefined;
   status: string = 'unknown';
   background: string = 'lightgrey';
+  active: boolean = false;
+  speed: number | undefined;
 
   constructor(private webSocketService: WebSocketServiceService) { }
 
@@ -23,6 +25,13 @@ export class MotorComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.webSocketService.close();
+  }
+
+  onToggleChange() {
+  }
+
+  formatLabel(value: number) : string {
+    return `${value}`;
   }
 
 }

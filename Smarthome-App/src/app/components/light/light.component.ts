@@ -5,7 +5,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-light',
   templateUrl: './light.component.html',
-  styleUrls: ['./light.component.css']
+  styleUrls: ['./light.component.css', '../components.css']
 })
 export class LightComponent implements OnInit, OnDestroy {
   
@@ -19,6 +19,10 @@ export class LightComponent implements OnInit, OnDestroy {
   constructor(private webSocketService: WebSocketServiceService) {}
 
   ngOnInit() {
+    if (this.name == "") {
+      this.name = "Light without Name";
+    }
+
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;

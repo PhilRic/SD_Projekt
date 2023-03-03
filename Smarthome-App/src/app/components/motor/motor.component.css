@@ -1,0 +1,12 @@
+#divMotor {
+	border-radius: 20px;
+	background: lightgray;
+	padding: 15px;
+	margin: 10px;
+	width: 200px;
+	height: 100px;
+}
+
+mat-slider {
+	width: 150px;
+}

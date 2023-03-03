@@ -1,1 +1,4 @@
-<p>lock works!</p>
+<div id="divLock" [ngStyle]="{'background': background}">
+	<p id="pName">{{name}}</p>
+	<mat-slide-toggle [(ngModel)]="locked" (change)="onToggleChange()"></mat-slide-toggle>
+</div>
