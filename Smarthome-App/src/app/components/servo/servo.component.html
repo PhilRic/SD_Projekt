@@ -1,6 +1,6 @@
-<div id="divLight" [ngStyle]="{'background': background}">
+<div id="divServo" [ngStyle]="{'background': background}">
     <p id="pName">{{name}}</p>
-    <input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onChange()">
+    <input [(ngModel)]="sliderValue" type="range" min="0" max="100" (ngModelChange)="onChange()">
         <p>Slider-Value: {{ sliderValue }}</p>
     
     
