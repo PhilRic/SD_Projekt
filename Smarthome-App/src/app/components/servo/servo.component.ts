@@ -4,7 +4,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-servo',
   templateUrl: './servo.component.html',
-  styleUrls: ['./servo.component.css']
+  styleUrls: ['./servo.component.css', '../components.css']
 })
 export class ServoComponent implements OnInit, OnDestroy {
   

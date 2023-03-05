@@ -3,7 +3,7 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 @Component({
   selector: 'app-fan',
   templateUrl: './fan.component.html',
-  styleUrls: ['./fan.component.css']
+  styleUrls: ['./fan.component.css', '../components.css']
 })
 export class FanComponent implements OnInit, OnDestroy {
   

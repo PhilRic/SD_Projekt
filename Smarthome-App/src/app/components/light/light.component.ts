@@ -30,6 +30,7 @@ export class LightComponent implements OnInit, OnDestroy {
       console.log('received', data);
       if (data.topic === this.device_id) {
         this.lamp_is_checked = data.payload;
+        this.background = this.lamp_is_checked ? 'gold' : 'lightgrey';
       } 
     });
   }
