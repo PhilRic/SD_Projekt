@@ -49,6 +49,11 @@ import { FanComponent } from './components/fan/fan.component';// für die Verwen
 
 //Color Picker
 import { ColorPickerModule } from 'ngx-color-picker';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { LoginComponent } from './login/login.component';
 //Firebase
 
 
@@ -65,7 +70,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     LockComponent,
     HouseComponent,
     ServoComponent,
-    FanComponent
+    FanComponent,
+    LoginComponent
     
     
   ],
@@ -105,6 +111,9 @@ import { ColorPickerModule } from 'ngx-color-picker';
     MatSortModule,
     MatPaginatorModule,
     ColorPickerModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   
  
   ],
