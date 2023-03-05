@@ -46,6 +46,4 @@ export class LightRgbComponent implements OnInit , OnDestroy{
     this.webSocketService.sendMessage(`{"payload":"${color}","topic":"${this.device_id}"}`);
   }
 
-  
-
 }
