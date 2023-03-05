@@ -1,1 +1,9 @@
-<p>house works!</p>
+<p>Räume Hinzufügen:</p>
+<div>
+    <label for="name">Raumname: </label>
+    <input type="text" #raumname>
+    <button (click)="addComponent(raumname.value)">Hinzufügen</button>
+</div>
+
+<!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
+<div #container></div>
