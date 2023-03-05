@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LightComponent } from './components/light/light.component';
 import { TemperatureComponent } from './components/temperature/temperature.component';
-import { MotorComponent } from './components/motor/motor.component';
 import { RoomComponent } from './room/room.component';
 import { LightRgbComponent } from './components/light-rgb/light-rgb.component';
 import { LockComponent } from './components/lock/lock.component';
@@ -61,7 +60,6 @@ import { ColorPickerModule } from 'ngx-color-picker';
     AppComponent,
     LightComponent,
     TemperatureComponent,
-    MotorComponent,
     RoomComponent,
     LightRgbComponent,
     LockComponent,
