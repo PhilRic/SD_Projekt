@@ -44,8 +44,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
-import { HouseComponent } from './house/house.component';// für die Verwendung von [(ngModel)] Notwendig
+import { HouseComponent } from './house/house.component';
+import { ServoComponent } from './components/servo/servo.component';
+import { FanComponent } from './components/fan/fan.component';// für die Verwendung von [(ngModel)] Notwendig
 
+//Color Picker
+import { ColorPickerModule } from 'ngx-color-picker';
 //Firebase
 
 
@@ -61,7 +65,9 @@ import { HouseComponent } from './house/house.component';// für die Verwendung 
     RoomComponent,
     LightRgbComponent,
     LockComponent,
-    HouseComponent
+    HouseComponent,
+    ServoComponent,
+    FanComponent
     
     
   ],
@@ -100,6 +106,7 @@ import { HouseComponent } from './house/house.component';// für die Verwendung 
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    ColorPickerModule,
   
  
   ],

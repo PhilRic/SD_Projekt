@@ -1,0 +1,7 @@
+<div id="divLight" [ngStyle]="{'background': background}">
+<p id="pName">{{name}}</p>
+<input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderChange()">
+    <p>Slider-Value: {{ sliderValue }}</p>
+
+
+</div>

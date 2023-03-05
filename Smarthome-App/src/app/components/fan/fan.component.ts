@@ -1,19 +1,16 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
-import { ColorPickerModule } from 'ngx-color-picker';
-
-
 @Component({
-  selector: 'app-light-rgb',
-  templateUrl: './light-rgb.component.html',
-  styleUrls: ['./light-rgb.component.css', '../components.css']
+  selector: 'app-fan',
+  templateUrl: './fan.component.html',
+  styleUrls: ['./fan.component.css']
 })
-export class LightRgbComponent implements OnInit , OnDestroy{
+export class FanComponent implements OnInit, OnDestroy {
   
   @Input() device_id: string | undefined;
   @Input() name: string | undefined;
-  selectedColor = '#ff0000';
   status: string = 'unknown';
+  sliderValue = 0;
   background: string = 'lightgrey';
   
 
@@ -21,7 +18,7 @@ export class LightRgbComponent implements OnInit , OnDestroy{
 
   ngOnInit() {
     if (this.name == "") {
-      this.name = "Servo without Name";
+      this.name = "Fan without Name";
     }
 
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
@@ -30,7 +27,8 @@ export class LightRgbComponent implements OnInit , OnDestroy{
     this.webSocketService.onMessage((data) => {
       console.log('received', data);
       if (data.topic === this.device_id) {
-        
+        console.log("Topic erkannt");
+        this.sliderValue = data.payload;
       } 
     });
   }
@@ -41,11 +39,7 @@ export class LightRgbComponent implements OnInit , OnDestroy{
 
   
 
-  onColorChange(color: string) {
-    console.log(color);
-    this.webSocketService.sendMessage(`{"payload":"${color}","topic":"${this.device_id}"}`);
+  onSliderChange() {
+    this.webSocketService.sendMessage(`{"payload":${this.sliderValue},"topic":"${this.device_id}"}`);
   }
-
-  
-
 }

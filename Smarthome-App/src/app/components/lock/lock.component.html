@@ -1,4 +1,4 @@
 <div id="divLock" [ngStyle]="{'background': background}">
 	<p id="pName">{{name}}</p>
-	<mat-slide-toggle [(ngModel)]="locked" (change)="onToggleChange()"></mat-slide-toggle>
+	<button mat-raised-button color="primary" (click)="buttonClicked()">Tür Öffnen</button>
 </div>

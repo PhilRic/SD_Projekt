@@ -24,22 +24,15 @@ export class LockComponent implements OnInit {
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
-    this.webSocketService.onMessage((data) => {
-      console.log('received', data);
-      if (data.topic === this.device_id) {
-        this.locked = data.payload;
-      } 
-    });
   }
 
   ngOnDestroy(): void {
     this.webSocketService.close();
   }
 
-  onToggleChange() {
-    this.background = this.locked ? 'grey' : 'lightgrey';
-    const payload = this.locked ? 'true' : 'false';
-    this.webSocketService.sendMessage(`{"payload":"${payload}","topic":${this.device_id}"}`);
+  buttonClicked() {
+    console.log("Button geklickt");
+    this.webSocketService.sendMessage(`{"payload": true,"topic":"${this.device_id}"}`);
   }
 
 }
