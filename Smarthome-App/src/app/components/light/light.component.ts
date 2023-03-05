@@ -45,6 +45,6 @@ export class LightComponent implements OnInit, OnDestroy {
   onToggleChange() {
     this.background = this.lamp_is_checked ? 'gold' : 'lightgrey';
     const payload = this.lamp_is_checked ? 'true' : 'false';
-    this.webSocketService.sendMessage(`{"payload":"${payload}","topic":${this.device_id}"}`);
+    this.webSocketService.sendMessage(`{"payload":${payload},"topic":"${this.device_id}"}`);
   }
 }
