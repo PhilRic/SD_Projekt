@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef,Input} from '@angular/core';
 import { TemperatureComponent } from 'src/app/components/temperature/temperature.component';
 import { LightComponent } from 'src/app/components/light/light.component';
 import { LightRgbComponent } from '../components/light-rgb/light-rgb.component';
@@ -12,6 +12,8 @@ import { FanComponent } from '../components/fan/fan.component';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements OnInit {
+
+  @Input() raumname: string | undefined;
 
   //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild( 'container', { read: ViewContainerRef })

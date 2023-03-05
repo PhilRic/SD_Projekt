@@ -1,4 +1,4 @@
-<h1>Raum Komponente</h1>
+<h1>Raum {{raumname}}</h1>
 <div>
     <label for="component">Komponente:</label>
     <select #component>
@@ -17,4 +17,6 @@
     <input type="text" #name>
     <button (click)="addComponent(component.value, device_id.value, name.value)">Hinzufügen</button>
   </div>
+
+  <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>

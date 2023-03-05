@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef,} from '@angular/core';
+import { RoomComponent } from '../room/room.component';
 
 @Component({
   selector: 'app-house',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HouseComponent {
 
+
+//den DIV Container mit der Bezeichnung Container importieren
+@ViewChild( 'container', { read: ViewContainerRef })
+container!: ViewContainerRef;
+
+  addComponent(raumname: string) {
+
+    const componentRef = this.container.createComponent(RoomComponent);
+      componentRef.instance.raumname = raumname;
+
+  }
 }
