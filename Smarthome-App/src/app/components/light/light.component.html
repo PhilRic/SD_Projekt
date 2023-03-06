@@ -1,5 +1,8 @@
 <div id="divLight" [ngStyle]="{'background': background}">
 	<p id="pName">{{name}}</p>
 	<mat-slide-toggle [(ngModel)]="lamp_is_checked" (change)="onToggleChange()"></mat-slide-toggle>
-	
+	<p></p>
+	<button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteClicked()">
+		<mat-icon>delete</mat-icon>
+	  </button>
 </div>

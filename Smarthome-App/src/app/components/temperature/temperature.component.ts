@@ -60,6 +60,8 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.webSocketService.close();
   }
 
+  
+
 }
 
 
