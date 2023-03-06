@@ -6,7 +6,7 @@
 	margin: 10px;
 	width: 200px;
 	height: 100px;
-	float: left;
+	display: inline-block;
 }
 
 #pName {
