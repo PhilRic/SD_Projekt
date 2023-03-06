@@ -14,6 +14,9 @@ import { filter } from 'rxjs';
 })
 export class RoomComponent implements AfterViewInit {
 
+  background: string = 'green';
+  showhinzufuegen: boolean = false;
+
   @Input() raumname!: string;
   @Input() referenz: any;
 
@@ -78,7 +81,7 @@ export class RoomComponent implements AfterViewInit {
       componentRef.instance.raumname = this.raumname;
       componentRef.instance.referenz = componentRef;
     }
-    
+    this.showhinzufuegen =false;
   }
 
   addComponentInit(componentName: string, device_id: string, name: string) {
@@ -138,6 +141,7 @@ export class RoomComponent implements AfterViewInit {
     console.log(filteredRooms);
 
     localStorage.setItem('rooms', JSON.stringify(filteredRooms));
+    localStorage.removeItem(this.raumname); // @Phillip , dass löscht dann alle Geräte in dem Raum
     const componentRef: ComponentRef<RoomComponent> = 
     this.referenz.destroy();
   }

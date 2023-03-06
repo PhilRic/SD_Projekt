@@ -1,8 +1,13 @@
+<div id="divComponents" [ngStyle]= "{'background': background}">
 <h1>Raum {{raumname}}</h1>
 <button mat-fab color="primary" (click)="deleteClicked()">
   <mat-icon>delete</mat-icon>
 </button>
-<div>
+<!-- Button zum Einnblenden der hinzufüge option -->
+<button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
+  <mat-icon>menu</mat-icon>
+</button>
+<div *ngIf="showhinzufuegen">
     <label for="component">Komponente:</label>
     <select #component>
       <option value="temperature">Temperature</option>
@@ -20,5 +25,8 @@
     <button (click)="addComponent(component.value, device_id.value, name.value)">Hinzufügen</button>
   </div>
 
+  
+
   <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>
+  </div>

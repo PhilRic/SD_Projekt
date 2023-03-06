@@ -7,28 +7,26 @@ import { RoomComponent } from '../room/room.component';
   styleUrls: ['./house.component.css']
 })
 export class HouseComponent implements AfterViewInit{
-  rooms: { name: string, devices: { name: string, type: string, id: string }[] }[] = [];
+  rooms: { name: string }[] = [];
+  showhinzufuegen: boolean = false;
 
-//den DIV Container mit der Bezeichnung Container importieren
-
+ //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
 
   addComponent(raumname: string) {
     
     // Raum hinzufügen
-    this.rooms.push({ name: raumname, devices: [] });
+    this.rooms.push({ name: raumname});
     // Räume im Local Storage speichern
     localStorage.setItem('rooms', JSON.stringify(this.rooms));
     // Raum-Komponente generieren
     const componentRef = this.container.createComponent(RoomComponent);
     componentRef.instance.raumname = raumname;
     componentRef.instance.referenz = componentRef;
+
+    this.showhinzufuegen = false;
     
-    
-    
-    // Räumeigenschaften an die Raum-Komponente Den Array mit der Device Liste Übergben
-    //componentRef.instance.devices = this.rooms[this.rooms.length - 1].devices;
     }
   
   
@@ -39,13 +37,11 @@ export class HouseComponent implements AfterViewInit{
     console.log(savedRooms);
     if (savedRooms) {
     this.rooms = JSON.parse(savedRooms);
-    
     // Räume generieren
     this.rooms.forEach(room => {
-      console.log(room.name);
     const componentRef1 = this.container.createComponent(RoomComponent);
     componentRef1.instance.raumname = room.name;
-    console.log(room.name);
+    componentRef1.instance.referenz = componentRef1; //Das fehlt @Phillip du konntest die Komponente nur dann löschen, wenn sie grade erstellt worden ist
     });
     }
     }

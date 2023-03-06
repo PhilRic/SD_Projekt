@@ -1,5 +1,9 @@
-
-<div>
+<h2>Räume</h2>
+<!-- Button zum Einnblenden der hinzufüge option -->
+<button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div *ngIf="showhinzufuegen">
     <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
     <input type="text" #raumname>
