@@ -1,7 +1,12 @@
-<div id="divFan" [ngStyle]="{'background': background}">
-<p id="pName">{{name}}</p>
-<input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderChange()">
+<div id="divComponents" [ngStyle]="{'background': background}">
+    <p id="pName">{{name}}</p>
+    <input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderChange()">
     <p>Slider-Value: {{ sliderValue }}</p>
+    <button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
+		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}"
+	>
+	<mat-icon>delete</mat-icon>
+	</button>
 
 
 </div>

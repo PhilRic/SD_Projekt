@@ -1,5 +1,11 @@
 <div id="divComponents">
-	<h2>Farbauswahl</h2>
+	<p id="pName">{{name}}</p>
+	<p>Farbauswahl</p>
 	<input [(colorPicker)]="selectedColor" [style.background]="selectedColor"  (colorPickerChange)="onColorChange($event)"/>
-     
+
+	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
+		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}"
+	>
+	<mat-icon>delete</mat-icon>
+	</button>
 </div>

@@ -22,7 +22,7 @@ export class RoomComponent implements AfterViewInit {
   container!: ViewContainerRef;
   
 
-  ngAfterViewInit(): void {
+    ngAfterViewInit(): void {
     
     // Versuchen, Geräte für diesen Raum aus dem Local Storage zu lesen
     const devices = localStorage.getItem(this.raumname);
@@ -54,18 +54,26 @@ export class RoomComponent implements AfterViewInit {
       const componentRef = this.container.createComponent(LightRgbComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
+      componentRef.instance.raumname = this.raumname;
+      componentRef.instance.referenz = componentRef;
     } else if (componentName == 'lock') {
       const componentRef = this.container.createComponent(LockComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
+      componentRef.instance.raumname = this.raumname;
+      componentRef.instance.referenz = componentRef;
     } else if (componentName == 'servo') {
       const componentRef = this.container.createComponent(ServoComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
+      componentRef.instance.raumname = this.raumname;
+      componentRef.instance.referenz = componentRef;
     }else if (componentName == 'fan') {
       const componentRef = this.container.createComponent(FanComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
+      componentRef.instance.raumname = this.raumname;
+      componentRef.instance.referenz = componentRef;
     }
     
   }
@@ -78,6 +86,8 @@ export class RoomComponent implements AfterViewInit {
     const componentRef = this.container.createComponent(TemperatureComponent);
     componentRef.instance.device_id = device_id;
     componentRef.instance.name = name;
+    componentRef.instance.raumname = this.raumname;
+    componentRef.instance.referenz = componentRef;
   } else if (componentName === 'light') {
     const componentRef = this.container.createComponent(LightComponent);
     componentRef.instance.device_id = device_id;
@@ -88,18 +98,26 @@ export class RoomComponent implements AfterViewInit {
     const componentRef = this.container.createComponent(LightRgbComponent);
     componentRef.instance.device_id = device_id;
     componentRef.instance.name = name;
+    componentRef.instance.raumname = this.raumname;
+    componentRef.instance.referenz = componentRef;
   } else if (componentName == 'lock') {
     const componentRef = this.container.createComponent(LockComponent);
     componentRef.instance.device_id = device_id;
     componentRef.instance.name = name;
+    componentRef.instance.raumname = this.raumname;
+    componentRef.instance.referenz = componentRef;
   } else if (componentName == 'servo') {
     const componentRef = this.container.createComponent(ServoComponent);
     componentRef.instance.device_id = device_id;
     componentRef.instance.name = name;
+    componentRef.instance.raumname = this.raumname;
+    componentRef.instance.referenz = componentRef;
   }else if (componentName == 'fan') {
     const componentRef = this.container.createComponent(FanComponent);
     componentRef.instance.device_id = device_id;
     componentRef.instance.name = name;
+    componentRef.instance.raumname = this.raumname;
+    componentRef.instance.referenz = componentRef;
   }
   
 }
