@@ -1,4 +1,7 @@
 <h1>Raum {{raumname}}</h1>
+<button mat-fab color="primary" (click)="deleteClicked()">
+  <mat-icon>delete</mat-icon>
+</button>
 <div>
     <label for="component">Komponente:</label>
     <select #component>

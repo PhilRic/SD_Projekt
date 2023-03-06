@@ -14,21 +14,22 @@ export class HouseComponent implements AfterViewInit{
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
 
-addComponent(raumname: string) {
-  
-  // Raum hinzufügen
-  this.rooms.push({ name: raumname, devices: [] });
-  // Räume im Local Storage speichern
-  localStorage.setItem('rooms', JSON.stringify(this.rooms));
-  // Raum-Komponente generieren
-  const componentRef = this.container.createComponent(RoomComponent);
-  componentRef.instance.raumname = raumname;
-  
-  
-  
-  // Räumeigenschaften an die Raum-Komponente Den Array mit der Device Liste Übergben
-  //componentRef.instance.devices = this.rooms[this.rooms.length - 1].devices;
-  }
+  addComponent(raumname: string) {
+    
+    // Raum hinzufügen
+    this.rooms.push({ name: raumname, devices: [] });
+    // Räume im Local Storage speichern
+    localStorage.setItem('rooms', JSON.stringify(this.rooms));
+    // Raum-Komponente generieren
+    const componentRef = this.container.createComponent(RoomComponent);
+    componentRef.instance.raumname = raumname;
+    componentRef.instance.referenz = componentRef;
+    
+    
+    
+    // Räumeigenschaften an die Raum-Komponente Den Array mit der Device Liste Übergben
+    //componentRef.instance.devices = this.rooms[this.rooms.length - 1].devices;
+    }
   
   
   ngAfterViewInit() {
