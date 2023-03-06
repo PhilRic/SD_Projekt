@@ -1,8 +1,10 @@
-<div id="divLight" [ngStyle]="{'background': background}">
+<div id="divComponents" [ngStyle]="{'background': backgroundLight}">
 	<p id="pName">{{name}}</p>
+	<p></p>
 	<mat-slide-toggle [(ngModel)]="lamp_is_checked" (change)="onToggleChange()"></mat-slide-toggle>
 	<p></p>
-	<button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteClicked()">
+	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
+		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}">
 		<mat-icon>delete</mat-icon>
-	  </button>
+	</button>
 </div>

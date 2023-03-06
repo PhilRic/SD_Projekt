@@ -15,8 +15,9 @@ export class LightComponent implements OnInit, OnDestroy {
   @Input() referenz:  | any;
   status: string = 'unknown';
   lamp_is_checked = false;
-  background: string = 'lightgrey';
+  backgroundLight: string = 'lightgrey';
   devices: any;
+  deleteButtonOpacity: any;
   
 
   constructor(private webSocketService: WebSocketServiceService) {}
@@ -33,7 +34,7 @@ export class LightComponent implements OnInit, OnDestroy {
       console.log('received', data);
       if (data.topic === this.device_id) {
         this.lamp_is_checked = data.payload;
-        this.background = this.lamp_is_checked ? 'gold' : 'lightgrey';
+        this.changeBackground();
       } 
     });
   }
@@ -44,23 +45,39 @@ export class LightComponent implements OnInit, OnDestroy {
 
 
   onToggleChange() {
-    this.background = this.lamp_is_checked ? 'gold' : 'lightgrey';
+    this.changeBackground();
     const payload = this.lamp_is_checked ? 'true' : 'false';
     this.webSocketService.sendMessage(`{"payload":${payload},"topic":"${this.device_id}"}`);
   }
-  deleteClicked(){
 
+  changeBackground() {
+    this.backgroundLight = this.lamp_is_checked ? 'gold' : 'lightgrey';
+  }
+
+  deleteClicked(){
     const devices_einlesen = localStorage.getItem(this.raumname);
     console.log(this.raumname);
+
     if (devices_einlesen) {
     this.devices = JSON.parse(devices_einlesen);}
     console.log(this.devices);
+
     const deviceIDToRemove = this.device_id;
     const filteredDevices = this.devices.filter((device: { device_id: string | undefined; }) => device.device_id !== deviceIDToRemove);
     console.log(this.devices);
+    
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<LightComponent> = 
     this.referenz.destroy();
+  }
+
+  changeVisibility(hide : boolean) {
+    if (hide) {
+      this.deleteButtonOpacity = .4;
+    }
+    else {
+      this.deleteButtonOpacity = 1;
+    }
   }
 
 }

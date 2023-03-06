@@ -1,5 +1,7 @@
-import { Component,Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ComponentRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
+
+
 @Component({
   selector: 'app-temperature',
   templateUrl: './temperature.component.html',
@@ -8,9 +10,12 @@ import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 export class TemperatureComponent implements OnInit, OnDestroy{
   @Input() device_id: string | undefined;
   @Input() name: string | undefined;
+  @Input() raumname: string | any;
+  @Input() referenz:  | any;
   temperatur: number | undefined;// = 23;
   status: string = 'unknown';
   backgroundTemp: string = 'lightgrey';
+  devices: any;
   
 
   constructor(private webSocketService: WebSocketServiceService) {}
@@ -60,7 +65,21 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.webSocketService.close();
   }
 
-  
+  deleteClicked() {
+    const devices_einlesen = localStorage.getItem(this.raumname);
+    console.log(this.raumname);
+
+    if (devices_einlesen) {
+    this.devices = JSON.parse(devices_einlesen);}
+    console.log(this.devices);
+
+    const deviceIDToRemove = this.device_id;
+    const filteredDevices = this.devices.filter((device: { device_id: string | undefined; }) => device.device_id !== deviceIDToRemove);
+    console.log(this.devices);
+    
+    localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
+    const componentRef: ComponentRef<TemperatureComponent> = this.referenz.destroy();
+  }
 
 }
 

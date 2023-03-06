@@ -42,6 +42,8 @@ export class RoomComponent implements AfterViewInit {
       const componentRef = this.container.createComponent(TemperatureComponent);
       componentRef.instance.device_id = device_id;
       componentRef.instance.name = name;
+      componentRef.instance.raumname = this.raumname;
+      componentRef.instance.referenz = componentRef;
     } else if (componentName === 'light') {
       const componentRef = this.container.createComponent(LightComponent);
       componentRef.instance.device_id = device_id;

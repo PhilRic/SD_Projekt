@@ -1,4 +1,7 @@
-<div id="divTemp" [ngStyle]="{'background': backgroundTemp}">
+<div id="divComponents" [ngStyle]="{'background': backgroundTemp}">
 	<p id="pName">{{name}}</p>
 	<p id="pTemp">{{temperatur}}°C</p>
+	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
+		<mat-icon>delete</mat-icon>
+	</button>
  </div>
