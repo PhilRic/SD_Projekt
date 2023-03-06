@@ -141,7 +141,7 @@ export class RoomComponent implements AfterViewInit {
     console.log(filteredRooms);
 
     localStorage.setItem('rooms', JSON.stringify(filteredRooms));
-    localStorage.removeItem(this.raumname); // @Phillip , dass löscht dann alle Geräte in dem Raum
+    localStorage.removeItem(this.raumname); // @Philipp, dass löscht dann alle Geräte in dem Raum
     const componentRef: ComponentRef<RoomComponent> = 
     this.referenz.destroy();
   }
