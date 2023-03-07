@@ -26,8 +26,7 @@ export class HouseComponent implements AfterViewInit{
     componentRef.instance.referenz = componentRef;
 
     this.showhinzufuegen = false;
-    
-    }
+  }
   
   
   ngAfterViewInit() {
@@ -36,14 +35,14 @@ export class HouseComponent implements AfterViewInit{
     const savedRooms = localStorage.getItem('rooms');
     console.log(savedRooms);
     if (savedRooms) {
-    this.rooms = JSON.parse(savedRooms);
-    // Räume generieren
-    this.rooms.forEach(room => {
-    const componentRef1 = this.container.createComponent(RoomComponent);
-    componentRef1.instance.raumname = room.name;
-    componentRef1.instance.referenz = componentRef1; //Das fehlt @Phillip du konntest die Komponente nur dann löschen, wenn sie grade erstellt worden ist
-    });
+      this.rooms = JSON.parse(savedRooms);
+      // Räume generieren
+      this.rooms.forEach(room => {
+        const componentRef1 = this.container.createComponent(RoomComponent);
+        componentRef1.instance.raumname = room.name;
+        componentRef1.instance.referenz = componentRef1; //Das fehlt @Phillip du konntest die Komponente nur dann löschen, wenn sie grade erstellt worden ist
+      });
     }
-    }
+  }
 
 }

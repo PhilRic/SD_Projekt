@@ -4,7 +4,8 @@
 	<mat-slide-toggle [(ngModel)]="lamp_is_checked" (change)="onToggleChange()"></mat-slide-toggle>
 	<p></p>
 	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
-		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}">
+		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}"
+	>
 		<mat-icon>delete</mat-icon>
 	</button>
 </div>
