@@ -1,10 +1,10 @@
-<div id="divComponents" [ngStyle]= "{'background': background}">
+<div id="divRoom">
   <h1>Raum {{raumname}}</h1>
   <button mat-fab color="primary" (click)="deleteClicked()">
     <mat-icon>delete</mat-icon>
   </button>
   <!-- Button zum Einnblenden der hinzufüge option -->
-  <button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
+  <button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
   <div *ngIf="showhinzufuegen">
