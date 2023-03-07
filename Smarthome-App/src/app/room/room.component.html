@@ -1,5 +1,5 @@
 <div id="divRoom">
-  <h1>Raum {{raumname}}</h1>
+  <h1 id="room">Raum {{raumname}}</h1>
   <button mat-fab color="primary" (click)="deleteClicked()">
     <mat-icon>delete</mat-icon>
   </button>
@@ -7,26 +7,42 @@
   <button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
-  <div *ngIf="showhinzufuegen">
-    <label for="component">Komponente:</label>
-    <select #component>
-      <option value="temperature">Temperature</option>
-      <option value="light">Light</option>
-      <option value="lightRGB">RGB-Light</option>
-      <option value="lock">Lock</option>
-      <option value="servo">Servo</option>
-      <option value="fan">Fan</option>
-    </select>
-    <br>
-    <label for="device_id">Device ID:</label>
-    <input type="text" #device_id>
-    <label for="name">Gerätename:</label>
-    <input type="text" #name>
-    <button (click)="addComponent(component.value, device_id.value, name.value)">Hinzufügen</button>
-  </div>
-
-  
 
   <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>
+
+  <!-- Komponente zum hinzufügen von Komponenten -->
+  <div id="divComponents" *ngIf="showhinzufuegen">
+    <p>
+      <!-- <mat-form-field appearance="outline"> -->
+        <!-- <mat-label>Komponente</mat-label> -->
+        <mat-select #component placeholder="Choose Component">
+          <mat-option value="temperature">Temperature</mat-option>
+          <mat-option value="light">Light</mat-option>
+          <mat-option value="lightRGB">RGB-Light</mat-option>
+          <mat-option value="lock">Lock</mat-option>
+          <mat-option value="servo">Servo</mat-option>
+          <mat-option value="fan">Fan</mat-option>
+        </mat-select>
+      <!-- </mat-form-field> -->
+    </p>
+    <p>
+      <mat-form-field id="name" appearance="fill">
+        <mat-label>Enter a name</mat-label>
+        <input matInput type="text" #name>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field id="deviceID" appearance="fill">
+        <mat-label>Enter Device-ID</mat-label>
+        <input matInput type="text" #device_id>
+      </mat-form-field>
+    </p>
+    <button id="buttonDelete" mat-fab color="primary"
+      (click)="addComponent(component.value, device_id.value, name.value)" (mouseenter)="changeVisibility(false)"
+      (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': opacityAddButton}">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div id="divDeleteButton"></div>
+  </div>
 </div>

@@ -2,6 +2,41 @@
 	margin-bottom: 20px;
 }
 
-h1 {
+h1#room {
 	font-family: 'OwnFont';
+}
+
+#buttonAdd {
+	position: absolute;
+	right: -5px;
+	bottom: -5px;
+	z-index: 10;
+}
+
+mat-select {
+	outline: gray solid 1px;
+	border-radius: 5px;
+	padding-left: 4px;
+}
+
+::ng-deep .mat-select-value {
+	color: black !important;
+	font-family: 'OwnFont' !important;
+}
+
+::ng-deep .mat-select-placeholder {
+	color: rgb(53, 52, 52);
+}
+
+::ng-deep .mat-form-field-wrapper {
+	margin-bottom: -1.25em;
+}
+
+mat-form-field#name {
+	height: 40px;
+}
+
+mat-form-field#deviceID {
+	height: 40px;
+	width: 75%;
 }
