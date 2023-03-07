@@ -8,6 +8,7 @@
 	height: 100px;
 	display: inline-block;
 	vertical-align: top;
+	z-index: 0;
 }
 
 #pName {
@@ -22,4 +23,16 @@
 	right: -5px;
 	bottom: -5px;
 	opacity: .4;
+	z-index: 10;
+}
+
+#divDeleteButton {
+	position: absolute;
+	right: -5px;
+	bottom: -5px;
+	border-radius: 50%;
+	background: lightgrey;
+	width: 56px;
+	height: 56px;
+	z-index: -10;
 }
