@@ -11,7 +11,7 @@ import { BearbeitungsService } from '../bearbeitungs.service';
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
-  styleUrls: ['./room.component.css']
+  styleUrls: ['./room.component.css', '../components/components.css']
 })
 export class RoomComponent implements AfterViewInit {
   constructor(public myService: BearbeitungsService) {}
@@ -23,6 +23,7 @@ export class RoomComponent implements AfterViewInit {
 
   devices: {componentName: string, device_id: string, name: string}[] = [];
   rooms: any;
+  opacityAddButton: any;
 
   //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild( 'container', { read: ViewContainerRef })
@@ -152,6 +153,14 @@ export class RoomComponent implements AfterViewInit {
     this.referenz.destroy();
   }
   
+  changeVisibility(hide : boolean) {
+    if (hide) {
+      this.opacityAddButton = .4;
+    }
+    else {
+      this.opacityAddButton = 1;
+    }
+  }
 
 
 }

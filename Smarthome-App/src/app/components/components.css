@@ -4,11 +4,10 @@
 	background: lightgray;
 	padding: 15px;
 	margin: 15px;
-	width: 200px;
-	height: 100px;
+	width: 210px;
+	height: 140px;
 	display: inline-block;
 	vertical-align: top;
-	z-index: 0;
 }
 
 #pName {
