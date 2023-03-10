@@ -14,17 +14,14 @@
   <!-- Komponente zum hinzufügen von Komponenten -->
   <div id="divComponents" *ngIf="this.BearbeitungsService.showComponentHinzufuegen && getbearbeiten()">
     <p>
-      <!-- <mat-form-field appearance="outline"> -->
-        <!-- <mat-label>Komponente</mat-label> -->
-        <mat-select #component placeholder="Choose Component">
-          <mat-option value="temperature">Temperature</mat-option>
-          <mat-option value="light">Light</mat-option>
-          <mat-option value="lightRGB">RGB-Light</mat-option>
-          <mat-option value="lock">Lock</mat-option>
-          <mat-option value="servo">Servo</mat-option>
-          <mat-option value="fan">Fan</mat-option>
-        </mat-select>
-      <!-- </mat-form-field> -->
+      <mat-select #component placeholder="Choose Component">
+        <mat-option value="temperature">Temperature</mat-option>
+        <mat-option value="light">Light</mat-option>
+        <mat-option value="lightRGB">RGB-Light</mat-option>
+        <mat-option value="lock">Lock</mat-option>
+        <mat-option value="servo">Servo</mat-option>
+        <mat-option value="fan">Fan</mat-option>
+      </mat-select>
     </p>
     <p>
       <mat-form-field id="name" appearance="fill">

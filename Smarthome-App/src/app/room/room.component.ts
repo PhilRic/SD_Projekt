@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ViewContainerRef,Input, ComponentRef} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ViewContainerRef, Input, ComponentRef} from '@angular/core';
 import { TemperatureComponent } from 'src/app/components/temperature/temperature.component';
 import { LightComponent } from 'src/app/components/light/light.component';
 import { LightRgbComponent } from '../components/light-rgb/light-rgb.component';
