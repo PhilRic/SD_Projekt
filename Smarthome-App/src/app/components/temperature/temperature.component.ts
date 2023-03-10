@@ -89,7 +89,7 @@ export class TemperatureComponent implements OnInit, OnDestroy{
 
   changeVisibility(hide : boolean) {
     if (hide) {
-      this.opacityDeleteButton = .4;
+      this.opacityDeleteButton = .6;
     }
     else {
       this.opacityDeleteButton = 1;

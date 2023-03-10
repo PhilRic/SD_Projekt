@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit,ViewChild, ViewContainerRef,} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef,} from '@angular/core';
 import { RoomComponent } from '../room/room.component';
 import { BearbeitungsService } from '../bearbeitungs.service';
 
@@ -9,8 +9,9 @@ import { BearbeitungsService } from '../bearbeitungs.service';
 })
 export class HouseComponent implements AfterViewInit{
   rooms: { name: string }[] = [];
-  showhinzufuegen: boolean = false;
-  constructor(public myService: BearbeitungsService) {}
+  showRoomHinzufuegen: boolean = false;
+
+  constructor(public bearbeitungsService: BearbeitungsService) {}
 
  //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild('container', { read: ViewContainerRef })
@@ -18,7 +19,8 @@ export class HouseComponent implements AfterViewInit{
 
   //Methode zum ändern der showLoeschen Variable
   changebearbeiten() {
-    this.myService.showLoeschen = !this.myService.showLoeschen;
+    this.bearbeitungsService.showLoeschen = !this.bearbeitungsService.showLoeschen;
+    this.bearbeitungsService.showComponentHinzufuegen = false;
   }
 
   addComponent(raumname: string) {
@@ -32,7 +34,7 @@ export class HouseComponent implements AfterViewInit{
     componentRef.instance.raumname = raumname;
     componentRef.instance.referenz = componentRef;
 
-    this.showhinzufuegen = false;
+    this.showRoomHinzufuegen = false;
   }
   
   

@@ -4,7 +4,7 @@
     <mat-icon>delete</mat-icon>
   </button>
   <!-- Button zum Einblenden der hinzufüge option -->
-  <button *ngIf="getbearbeiten()" (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
+  <button *ngIf="getbearbeiten()" (click)="this.BearbeitungsService.showComponentHinzufuegen = !this.BearbeitungsService.showComponentHinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
 
@@ -12,7 +12,7 @@
   <div #container></div>
 
   <!-- Komponente zum hinzufügen von Komponenten -->
-  <div id="divComponents" *ngIf="showhinzufuegen">
+  <div id="divComponents" *ngIf="this.BearbeitungsService.showComponentHinzufuegen && getbearbeiten()">
     <p>
       <!-- <mat-form-field appearance="outline"> -->
         <!-- <mat-label>Komponente</mat-label> -->

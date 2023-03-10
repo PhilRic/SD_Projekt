@@ -14,21 +14,19 @@ import { BearbeitungsService } from '../bearbeitungs.service';
   styleUrls: ['./room.component.css', '../components/components.css']
 })
 export class RoomComponent implements AfterViewInit {
-  constructor(public BearbeitungsService: BearbeitungsService) {}
-  background: string = 'green';
-  showhinzufuegen: boolean = false;
-
+    
   @Input() raumname!: string;
   @Input() referenz: any;
-
+  
   devices: {componentName: string, device_id: string, name: string}[] = [];
   rooms: any;
   opacityAddButton: any;
-
+  
   //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild( 'container', { read: ViewContainerRef })
   container!: ViewContainerRef;
   
+  constructor(public BearbeitungsService: BearbeitungsService) {}
 
   ngAfterViewInit(): void {
     
@@ -89,7 +87,7 @@ export class RoomComponent implements AfterViewInit {
       componentRef.instance.raumname = this.raumname;
       componentRef.instance.referenz = componentRef;
     }
-    this.showhinzufuegen =false;
+    this.BearbeitungsService.showComponentHinzufuegen = false;
   }
 
   addComponentInit(componentName: string, device_id: string, name: string) {
@@ -156,7 +154,7 @@ export class RoomComponent implements AfterViewInit {
   
   changeVisibility(hide : boolean) {
     if (hide) {
-      this.opacityAddButton = .4;
+      this.opacityAddButton = .6;
     }
     else {
       this.opacityAddButton = 1;

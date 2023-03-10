@@ -63,7 +63,7 @@ export class LockComponent implements OnInit {
 
   changeVisibility(hide : boolean) {
     if (hide) {
-      this.deleteButtonOpacity = .4;
+      this.deleteButtonOpacity = .6;
     }
     else {
       this.deleteButtonOpacity = 1;

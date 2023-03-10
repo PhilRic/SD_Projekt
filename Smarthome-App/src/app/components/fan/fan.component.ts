@@ -72,7 +72,7 @@ export class FanComponent implements OnInit, OnDestroy {
 
   changeVisibility(hide : boolean) {
     if (hide) {
-      this.deleteButtonOpacity = .4;
+      this.deleteButtonOpacity = .6;
     }
     else {
       this.deleteButtonOpacity = 1;
