@@ -2,7 +2,7 @@
 	padding: 25px;
 	background: rgba(128, 128, 128, 0.85);
 	border-radius: 20px;
-	width: 70%;
+	width: fit-content;
 	margin: 20px;
 	box-shadow: 3px 3px 2px 1px rgb(70, 68, 68, 0.3);
 }
