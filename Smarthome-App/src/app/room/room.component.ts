@@ -6,6 +6,7 @@ import { LockComponent } from '../components/lock/lock.component';
 import { ServoComponent } from '../components/servo/servo.component';
 import { FanComponent } from '../components/fan/fan.component';
 import { filter } from 'rxjs';
+import { BearbeitungsService } from '../bearbeitungs.service';
 
 @Component({
   selector: 'app-room',
@@ -13,7 +14,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements AfterViewInit {
-
+  constructor(public myService: BearbeitungsService) {}
   background: string = 'green';
   showhinzufuegen: boolean = false;
 
@@ -37,6 +38,11 @@ export class RoomComponent implements AfterViewInit {
     // Für jedes Gespeicherte  Gerät eine Gerätekomponente hinzufügen
     this.devices.forEach(device => this.addComponentInit(device.componentName, device.device_id, device.name));
     }
+  }
+
+  //Abfrage der im bearbeitungsservice zu verfügung gestellten Variable
+  getbearbeiten() {
+    return this.myService.showLoeschen;
   }
 
   addComponent(componentName: string, device_id: string, name: string) {

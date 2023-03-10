@@ -1,3 +1,10 @@
-h2 {
+h1 {
 	font-family: 'OwnFont';
+	font-size: 40px;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+button {
+	margin-left: 15px;
 }

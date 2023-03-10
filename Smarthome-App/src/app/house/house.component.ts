@@ -1,5 +1,6 @@
 import { Component, OnInit,AfterViewInit,ViewChild, ViewContainerRef,} from '@angular/core';
 import { RoomComponent } from '../room/room.component';
+import { BearbeitungsService } from '../bearbeitungs.service';
 
 @Component({
   selector: 'app-house',
@@ -9,10 +10,16 @@ import { RoomComponent } from '../room/room.component';
 export class HouseComponent implements AfterViewInit{
   rooms: { name: string }[] = [];
   showhinzufuegen: boolean = false;
+  constructor(public myService: BearbeitungsService) {}
 
  //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
+
+  //Methode zum ändern der showLoeschen Variable
+  changebearbeiten() {
+    this.myService.showLoeschen = !this.myService.showLoeschen;
+  }
 
   addComponent(raumname: string) {
     

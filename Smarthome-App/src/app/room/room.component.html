@@ -1,10 +1,10 @@
 <div id="divRoom">
   <h1>Raum {{raumname}}</h1>
-  <button mat-fab color="primary" (click)="deleteClicked()">
+  <button *ngIf="getbearbeiten()" mat-fab color="primary" (click)="deleteClicked()">
     <mat-icon>delete</mat-icon>
   </button>
-  <!-- Button zum Einnblenden der hinzufüge option -->
-  <button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
+  <!-- Button zum Einblenden der hinzufüge option -->
+  <button *ngIf="getbearbeiten()" (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
   <div *ngIf="showhinzufuegen">
@@ -24,8 +24,6 @@
     <input type="text" #name>
     <button (click)="addComponent(component.value, device_id.value, name.value)">Hinzufügen</button>
   </div>
-
-  
 
   <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>

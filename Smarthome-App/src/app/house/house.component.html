@@ -1,8 +1,9 @@
-<h2>Räume</h2>
+<h1>Räume</h1>
 <!-- Button zum Einnblenden der hinzufüge option -->
 <button (click)="showhinzufuegen = !showhinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
     <mat-icon>add</mat-icon>
   </button>
+
   <div *ngIf="showhinzufuegen">
     <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
@@ -10,5 +11,6 @@
     <button (click)="addComponent(raumname.value)">Hinzufügen</button>
 </div>
 
+<button (click)="changebearbeiten()">Bearbeiten</button>
 <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
 <div #container></div>
