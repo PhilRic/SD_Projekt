@@ -1,7 +1,8 @@
-<h1>Räume</h1>
-<!-- Button zum Einnblenden der hinzufüge option -->
-<button (click)="showRoomHinzufuegen = !showRoomHinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
-    <mat-icon>add</mat-icon>
+<div id="divHouse">
+  <h1>Räume</h1>
+  <!-- Button zum Einnblenden der hinzufüge option -->
+  <button (click)="showRoomHinzufuegen = !showRoomHinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
+      <mat-icon>add</mat-icon>
   </button>
 
   <button (click)="changebearbeiten()">Bearbeiten</button>
@@ -11,6 +12,7 @@
     <label for="name">Raumname: </label>
     <input type="text" #raumname>
     <button (click)="addComponent(raumname.value)">Hinzufügen</button>
+  </div>
+  <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
+  <div #container></div>
 </div>
-<!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
-<div #container></div>
