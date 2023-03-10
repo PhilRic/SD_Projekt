@@ -3,7 +3,7 @@
 	<p>Farbauswahl:</p>
 	<input id="colorPick" [(colorPicker)]="selectedColor" [style.background]="selectedColor"  (colorPickerChange)="onColorChange($event)"/>
 
-	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
+	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
 		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}"
 	>
 		<mat-icon>delete</mat-icon>

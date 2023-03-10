@@ -4,13 +4,13 @@
     <mat-icon>add</mat-icon>
   </button>
 
-  <div *ngIf="showhinzufuegen">
+  <button (click)="changebearbeiten()">Bearbeiten</button>
+
+  <div class="Hinzufügen" *ngIf="showhinzufuegen">
     <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
     <input type="text" #raumname>
     <button (click)="addComponent(raumname.value)">Hinzufügen</button>
 </div>
-
-<button (click)="changebearbeiten()">Bearbeiten</button>
 <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
 <div #container></div>

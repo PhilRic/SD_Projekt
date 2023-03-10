@@ -1,6 +1,6 @@
 import { Component, ComponentRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
-
+import { BearbeitungsService } from 'src/app/bearbeitungs.service';
 
 @Component({
   selector: 'app-temperature',
@@ -19,7 +19,7 @@ export class TemperatureComponent implements OnInit, OnDestroy{
   opacityDeleteButton: any;
   
 
-  constructor(private webSocketService: WebSocketServiceService) {}
+  constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
   ngOnInit() {
     if (this.name == "") {
@@ -40,6 +40,10 @@ export class TemperatureComponent implements OnInit, OnDestroy{
         this.changeBackground();
       } 
     });
+  }
+
+  getbearbeiten() {
+    return this.BearbeitungsService.showLoeschen
   }
 
   changeBackground() {

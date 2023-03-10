@@ -8,3 +8,19 @@ h1 {
 button {
 	margin-left: 15px;
 }
+
+.Hinzufügen{
+	padding: 25px;
+	background: rgba(128, 128, 128, 0.85);
+	border-radius: 20px;
+	width: 450px;
+	margin: 20px;
+	box-shadow: 3px 3px 2px 1px rgb(70, 68, 68, 0.3);
+	font-family: 'OwnFont';
+	font-size: 20px;
+}
+
+p{
+	font-size: 30px;
+	margin-bottom: 20px;
+}

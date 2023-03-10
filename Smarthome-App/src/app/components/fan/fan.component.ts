@@ -1,12 +1,14 @@
 import { Component, ComponentRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
+import { BearbeitungsService } from 'src/app/bearbeitungs.service';
+
 @Component({
   selector: 'app-fan',
   templateUrl: './fan.component.html',
   styleUrls: ['./fan.component.css', '../components.css']
 })
 export class FanComponent implements OnInit, OnDestroy {
-  
+
   @Input() device_id: string | undefined;
   @Input() name: string | undefined;
   @Input() raumname: string | any;
@@ -18,8 +20,12 @@ export class FanComponent implements OnInit, OnDestroy {
   deleteButtonOpacity: any;
   
 
-  constructor(private webSocketService: WebSocketServiceService) {}
+  constructor(private webSocketService: WebSocketServiceService, public bearbeitungsservice: BearbeitungsService) {}
 
+  getbearbeiten() {
+    return this.bearbeitungsservice.showLoeschen
+  }
+ 
   ngOnInit() {
     if (this.name == "") {
       this.name = "Fan without Name";

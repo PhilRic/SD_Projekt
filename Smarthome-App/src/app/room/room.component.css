@@ -40,6 +40,9 @@ mat-select {
 mat-form-field#name {
 	height: 40px;
 }
+mat-form-field mat-label {
+	color: rgb(73, 73, 73);
+}
 
 mat-form-field#deviceID {
 	height: 40px;

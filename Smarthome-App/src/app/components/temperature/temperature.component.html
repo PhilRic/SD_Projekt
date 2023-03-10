@@ -1,7 +1,7 @@
 <div id="divComponents" [ngStyle]="{'background': backgroundTemp}">
 	<p id="pName">{{name}}</p>
 	<p id="pTemp">{{temperatur}}°C</p>
-	<button id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
+	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
 		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': opacityDeleteButton}"
 	>
 		<mat-icon>delete</mat-icon>

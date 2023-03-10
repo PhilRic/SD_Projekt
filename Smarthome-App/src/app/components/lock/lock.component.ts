@@ -1,5 +1,6 @@
 import { Component, ComponentRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
+import { BearbeitungsService } from 'src/app/bearbeitungs.service';
 
 @Component({
   selector: 'app-lock',
@@ -18,7 +19,7 @@ export class LockComponent implements OnInit {
   locked = false;
   deleteButtonOpacity: any;
 
-  constructor(private webSocketService: WebSocketServiceService) { }
+  constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) { }
 
   ngOnInit(): void {
     if (this.name == "") {
@@ -28,6 +29,10 @@ export class LockComponent implements OnInit {
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
+  }
+
+  getbearbeiten() {
+    return this.BearbeitungsService.showLoeschen
   }
 
   ngOnDestroy(): void {

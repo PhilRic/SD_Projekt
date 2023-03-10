@@ -1,7 +1,7 @@
 import { Component, ComponentRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
 import { ColorPickerModule } from 'ngx-color-picker';
-
+import { BearbeitungsService } from 'src/app/bearbeitungs.service';
 
 @Component({
   selector: 'app-light-rgb',
@@ -21,7 +21,7 @@ export class LightRgbComponent implements OnInit , OnDestroy{
   deleteButtonOpacity: any;
   
 
-  constructor(private webSocketService: WebSocketServiceService) {}
+  constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
   ngOnInit() {
     if (this.name == "") {
@@ -37,6 +37,10 @@ export class LightRgbComponent implements OnInit , OnDestroy{
         
       } 
     });
+  }
+
+  getbearbeiten() {
+    return this.BearbeitungsService.showLoeschen
   }
 
   ngOnDestroy() {

@@ -1,5 +1,6 @@
 import { Component, ComponentRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketServiceService } from 'src/app/web-socket-service.service';
+import { BearbeitungsService } from 'src/app/bearbeitungs.service';
 
 @Component({
   selector: 'app-servo',
@@ -19,7 +20,7 @@ export class ServoComponent implements OnInit, OnDestroy {
   deleteButtonOpacity: any;
   
 
-  constructor(private webSocketService: WebSocketServiceService) {}
+  constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
   ngOnInit() {
     if (this.name == "") {
@@ -41,7 +42,9 @@ export class ServoComponent implements OnInit, OnDestroy {
     this.webSocketService.close();
   }
 
-  
+  getbearbeiten() {
+    return this.BearbeitungsService.showLoeschen
+  }
 
   onChange(){
     this.webSocketService.sendMessage(`{"payload":${this.sliderValue},"topic":"${this.device_id}"}`);
