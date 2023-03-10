@@ -5,6 +5,7 @@
 	width: fit-content;
 	margin: 20px;
 	box-shadow: 3px 3px 2px 1px rgb(70, 68, 68, 0.3);
+	max-width: 80%;
 }
 
 h1#room {

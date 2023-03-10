@@ -14,7 +14,7 @@ import { BearbeitungsService } from '../bearbeitungs.service';
   styleUrls: ['./room.component.css', '../components/components.css']
 })
 export class RoomComponent implements AfterViewInit {
-  constructor(public myService: BearbeitungsService) {}
+  constructor(public BearbeitungsService: BearbeitungsService) {}
   background: string = 'green';
   showhinzufuegen: boolean = false;
 
@@ -43,8 +43,9 @@ export class RoomComponent implements AfterViewInit {
 
   //Abfrage der im bearbeitungsservice zu verfügung gestellten Variable
   getbearbeiten() {
-    return this.myService.showLoeschen;
+    return this.BearbeitungsService.showLoeschen
   }
+  
 
   addComponent(componentName: string, device_id: string, name: string) {
     this.devices.push({componentName, device_id, name});
