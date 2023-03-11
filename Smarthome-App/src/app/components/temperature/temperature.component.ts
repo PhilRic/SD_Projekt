@@ -16,8 +16,6 @@ export class TemperatureComponent implements OnInit, OnDestroy{
   status: string = 'unknown';
   backgroundTemp: string = 'lightgrey';
   devices: any;
-  opacityDeleteButton: any;
-  
 
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
@@ -85,15 +83,6 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<TemperatureComponent> = 
     this.referenz.destroy();
-  }
-
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.opacityDeleteButton = .6;
-    }
-    else {
-      this.opacityDeleteButton = 1;
-    }
   }
 
 }

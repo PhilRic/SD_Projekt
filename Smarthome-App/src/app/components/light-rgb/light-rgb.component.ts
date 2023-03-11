@@ -18,8 +18,6 @@ export class LightRgbComponent implements OnInit , OnDestroy{
   selectedColor = '#ff0000';
   status: string = 'unknown';
   background: string = 'lightgrey';
-  deleteButtonOpacity: any;
-  
 
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
@@ -69,15 +67,6 @@ export class LightRgbComponent implements OnInit , OnDestroy{
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<LightRgbComponent> = 
     this.referenz.destroy();
-  }
-
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.deleteButtonOpacity = .6;
-    }
-    else {
-      this.deleteButtonOpacity = 1;
-    }
   }
 
 }

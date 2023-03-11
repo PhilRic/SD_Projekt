@@ -17,7 +17,6 @@ export class FanComponent implements OnInit, OnDestroy {
   status: string = 'unknown';
   sliderValue = 0;
   background: string = 'lightgrey';
-  deleteButtonOpacity: any;
   
 
   constructor(private webSocketService: WebSocketServiceService, public bearbeitungsservice: BearbeitungsService) {}
@@ -68,15 +67,6 @@ export class FanComponent implements OnInit, OnDestroy {
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<FanComponent> = 
     this.referenz.destroy();
-  }
-
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.deleteButtonOpacity = .6;
-    }
-    else {
-      this.deleteButtonOpacity = 1;
-    }
   }
 
 }

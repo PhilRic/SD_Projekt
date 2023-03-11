@@ -2,9 +2,7 @@
 	<p id="pName">{{name}}</p>
 	<button id="türbutton" mat-raised-button color="primary" (click)="buttonClicked()">Tür Öffnen</button>
 
-	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()"
-		(mouseenter)="changeVisibility(false)" (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': deleteButtonOpacity}"
-	>
+	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
 		<mat-icon>delete</mat-icon>
 	</button>
 	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>

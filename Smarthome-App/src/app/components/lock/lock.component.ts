@@ -17,7 +17,6 @@ export class LockComponent implements OnInit {
   status: string = 'unknown';
   background: string = 'lightgrey';
   locked = false;
-  deleteButtonOpacity: any;
 
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) { }
 
@@ -59,15 +58,6 @@ export class LockComponent implements OnInit {
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<LockComponent> = 
     this.referenz.destroy();
-  }
-
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.deleteButtonOpacity = .6;
-    }
-    else {
-      this.deleteButtonOpacity = 1;
-    }
   }
 
 }

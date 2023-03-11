@@ -17,8 +17,6 @@ export class LightComponent implements OnInit, OnDestroy {
   lamp_is_checked = false;
   backgroundLight: string = 'lightgrey';
   devices: any;
-  deleteButtonOpacity: any;
-  
 
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
@@ -73,15 +71,6 @@ export class LightComponent implements OnInit, OnDestroy {
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<LightComponent> = 
     this.referenz.destroy();
-  }
-
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.deleteButtonOpacity = .6;
-    }
-    else {
-      this.deleteButtonOpacity = 1;
-    }
   }
 
 }
