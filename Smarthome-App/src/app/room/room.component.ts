@@ -161,5 +161,4 @@ export class RoomComponent implements AfterViewInit {
     }
   }
 
-
 }

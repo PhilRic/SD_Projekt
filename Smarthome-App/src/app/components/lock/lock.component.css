@@ -1,0 +1,7 @@
+#türbutton {
+    opacity: 60%;
+}
+
+#türbutton:hover {
+    opacity: 100%;
+}
