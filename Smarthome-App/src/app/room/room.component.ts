@@ -21,6 +21,7 @@ export class RoomComponent implements AfterViewInit {
   devices: {componentName: string, device_id: string, name: string}[] = [];
   rooms: any;
   opacityAddButton: any;
+  showHizufuegenComponent: boolean = false;
   
   //den DIV Container mit der Bezeichnung Container importieren
   @ViewChild( 'container', { read: ViewContainerRef })
@@ -87,7 +88,7 @@ export class RoomComponent implements AfterViewInit {
       componentRef.instance.raumname = this.raumname;
       componentRef.instance.referenz = componentRef;
     }
-    this.BearbeitungsService.showComponentHinzufuegen = false;
+    this.showHizufuegenComponent = false;
   }
 
   addComponentInit(componentName: string, device_id: string, name: string) {

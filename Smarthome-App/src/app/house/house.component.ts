@@ -20,7 +20,6 @@ export class HouseComponent implements AfterViewInit{
   //Methode zum ändern der showLoeschen Variable
   changebearbeiten() {
     this.bearbeitungsService.showLoeschen = !this.bearbeitungsService.showLoeschen;
-    this.bearbeitungsService.showComponentHinzufuegen = false;
   }
 
   addComponent(raumname: string) {

@@ -5,7 +5,7 @@
     <mat-icon>delete</mat-icon>
   </button>
   <!-- Button zum Einblenden der hinzufüge option -->
-  <button *ngIf="getbearbeiten()" (click)="this.BearbeitungsService.showComponentHinzufuegen = !this.BearbeitungsService.showComponentHinzufuegen" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
+  <button *ngIf="getbearbeiten()" (click)="this.showHizufuegenComponent= !this.showHizufuegenComponent" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
 
@@ -13,7 +13,7 @@
   <div #container></div>
 
   <!-- Komponente zum hinzufügen von Komponenten -->
-  <div id="divComponents" *ngIf="this.BearbeitungsService.showComponentHinzufuegen && getbearbeiten()">
+  <div id="divComponents" *ngIf="this.showHizufuegenComponent && getbearbeiten()">
     <p>
       <mat-select #component placeholder="Choose Component">
         <mat-option value="temperature">Temperature</mat-option>

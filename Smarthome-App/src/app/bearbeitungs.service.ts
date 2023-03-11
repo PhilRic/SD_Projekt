@@ -5,5 +5,4 @@ import { Injectable } from '@angular/core';
 })
 export class BearbeitungsService {
   public showLoeschen: boolean = false;
-  public showComponentHinzufuegen: boolean = false;
 }
