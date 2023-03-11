@@ -4,7 +4,7 @@
 
 h1 {
 	font-family: 'OwnFont';
-	font-size: 40px;
+	font-size: 45px;
 }
 
 .Hinzufügen{
@@ -21,4 +21,23 @@ h1 {
 p{
 	font-size: 30px;
 	margin-bottom: 20px;
+}
+
+button {
+	width: 70px;
+	height: 70px;
+	margin-right: 10px;
+	opacity: 60%;
+}
+
+button:hover{
+	opacity: 100%;
+}
+
+#HinzufügeFinal{
+	width: 90px;
+	height: 23px;
+	background-color: white;
+	margin-left: 5px;
+	border-radius: 5px;
 }

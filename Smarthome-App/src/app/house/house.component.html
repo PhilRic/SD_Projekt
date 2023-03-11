@@ -1,17 +1,19 @@
 <div id="divHouse">
   <h1>Räume</h1>
   <!-- Button zum Einnblenden der hinzufüge option -->
-  <button (click)="showRoomHinzufuegen = !showRoomHinzufuegen" mat-icon-button color="accent" aria-label="Example icon button with a menu icon" >
+  <button (click)="showRoomHinzufuegen = !showRoomHinzufuegen" mat-fab color="primary" aria-label="Example icon button with a menu icon">
       <mat-icon>add</mat-icon>
   </button>
 
-  <button (click)="changebearbeiten()">Bearbeiten</button>
+  <button (click)="changebearbeiten()" mat-fab color="primary">
+    <mat-icon>settings</mat-icon>
+  </button>
 
   <div class="Hinzufügen" *ngIf="showRoomHinzufuegen">
     <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
     <input type="text" #raumname>
-    <button (click)="addComponent(raumname.value)">Hinzufügen</button>
+    <button id="HinzufügeFinal" (click)="addComponent(raumname.value)">Hinzufügen</button>
   </div>
   <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>

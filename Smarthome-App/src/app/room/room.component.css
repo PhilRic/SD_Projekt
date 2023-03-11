@@ -11,6 +11,15 @@
 
 h1#room {
 	font-family: 'OwnFont';
+	font-size: 30px;
+}
+
+button {
+	opacity: 60%;
+}
+
+button:hover {
+	opacity: 100%;
 }
 
 #buttonAdd {
