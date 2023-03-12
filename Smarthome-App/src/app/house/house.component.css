@@ -35,9 +35,7 @@ button:hover{
 }
 
 #HinzufügeFinal{
-	width: 90px;
-	height: 23px;
-	background-color: white;
-	margin-left: 5px;
-	border-radius: 5px;
+	width: auto;
+	height: auto;
+	margin-left: 10px;
 }

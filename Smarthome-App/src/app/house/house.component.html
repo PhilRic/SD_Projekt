@@ -12,8 +12,11 @@
   <div class="Hinzufügen" *ngIf="showRoomHinzufuegen">
     <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
-    <input type="text" #raumname>
-    <button id="HinzufügeFinal" (click)="addComponent(raumname.value)">Hinzufügen</button>
+    <mat-form-field id="roomname" appearance="fill">
+      <mat-label>Enter Roomname</mat-label>
+      <input type="text" #raumname>
+    </mat-form-field>
+    <button id="HinzufügeFinal" mat-raised-button color="primary" (click)="addComponent(raumname.value)">Hinzufügen</button>
   </div>
   <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>

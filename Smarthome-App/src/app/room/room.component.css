@@ -1,7 +1,7 @@
 #divRoom {
 	padding: 25px;
 	background: rgba(128, 128, 128, 0.85);
-	border-radius: 20px;
+	border-radius: 35px;
 	width: fit-content;
 	margin: 20px;
 	margin-left: 0px;
@@ -12,6 +12,8 @@
 h1#room {
 	font-family: 'OwnFont';
 	font-size: 30px;
+	margin-top: 10px;
+	margin-left: 15px;
 }
 
 button {
