@@ -24,6 +24,10 @@ button:hover {
 	opacity: 100%;
 }
 
+button#delete {
+	margin-left: 15px;
+}
+
 #buttonAdd {
 	position: absolute;
 	right: -5px;
