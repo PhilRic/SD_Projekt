@@ -37,8 +37,7 @@
       </mat-form-field>
     </p>
     <button id="buttonDelete" mat-fab color="primary"
-      (click)="addComponent(component.value, device_id.value, name.value)" (mouseenter)="changeVisibility(false)"
-      (mouseleave)="changeVisibility(true)" [ngStyle]="{'opacity': opacityAddButton}">
+      (click)="addComponent(component.value, device_id.value, name.value)" [ngStyle]="{'opacity': opacityAddButton}">
       <mat-icon>add</mat-icon>
     </button>
     <div id="divDeleteButton"></div>

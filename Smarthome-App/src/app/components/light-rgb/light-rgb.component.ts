@@ -23,7 +23,7 @@ export class LightRgbComponent implements OnInit , OnDestroy{
 
   ngOnInit() {
     if (this.name == "") {
-      this.name = "Servo without Name";
+      this.name = "RGB-Light without Name";
     }
 
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
