@@ -1,9 +1,15 @@
+<!-- Div für die Komponente -->
 <div id="divComponents" [ngStyle]="{'background': background}">
-    <p id="pName">{{name}}</p>
-    <input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderChange()">
-    <p>Slider-Value: {{ sliderValue }}</p>
-    <button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
-		<mat-icon>delete</mat-icon>
+  <!-- Name der Fan Komponente -->
+  <p id="pName">{{name}}</p>
+  <!-- Slider zum einstellen der Fan Komponente -->
+  <input type="range" min="0" max="100" [(ngModel)]="sliderValue" (ngModelChange)="onSliderChange()">
+  <p>Fan-Value: {{ sliderValue }}</p>
+
+  <!-- Button zum Entfernen der Komponente -->
+  <button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
+	<mat-icon>delete</mat-icon>
 	</button>
+  <!-- Hintergrund für den Delete-Button -->
 	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
 </div>

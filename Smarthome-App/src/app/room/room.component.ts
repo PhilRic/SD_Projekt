@@ -45,7 +45,7 @@ export class RoomComponent implements AfterViewInit {
     return this.BearbeitungsService.showLoeschen
   }
   
-
+  /* Komponente hinzufügen */
   addComponent(componentName: string, device_id: string, name: string) {
     this.devices.push({componentName, device_id, name});
     // Geräte für diesen Raum im Local Storage aktualisieren
@@ -91,6 +91,7 @@ export class RoomComponent implements AfterViewInit {
     this.showHizufuegenComponent = false;
   }
 
+  /* Komponenten beim öffnen der Seite einfügen */
   addComponentInit(componentName: string, device_id: string, name: string) {
     // Geräte für diesen Raum im Local Storage aktualisieren
     localStorage.setItem(this.raumname, JSON.stringify(this.devices));
@@ -135,17 +136,18 @@ export class RoomComponent implements AfterViewInit {
   
   }
 
+  /* löschen eines Raumes aus localStorage */
   deleteClicked() {
     const rooms_einlesen = localStorage.getItem('rooms');
     
     if (rooms_einlesen) {
       this.rooms = JSON.parse(rooms_einlesen);
-      console.log(this.rooms)
+      //console.log(this.rooms)
     }
 
     const roomToRemove = this.raumname;
     const filteredRooms = this.rooms.filter((room: {name: string | undefined;}) => room.name !== roomToRemove);
-    console.log(filteredRooms);
+    //console.log(filteredRooms);
 
     localStorage.setItem('rooms', JSON.stringify(filteredRooms));
     localStorage.removeItem(this.raumname); // @Philipp, dass löscht dann alle Geräte in dem Raum
@@ -153,13 +155,6 @@ export class RoomComponent implements AfterViewInit {
     this.referenz.destroy();
   }
   
-  changeVisibility(hide : boolean) {
-    if (hide) {
-      this.opacityAddButton = .6;
-    }
-    else {
-      this.opacityAddButton = 1;
-    }
-  }
+  
 
 }
