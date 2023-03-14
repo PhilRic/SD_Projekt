@@ -20,15 +20,14 @@ export class TemperatureComponent implements OnInit, OnDestroy{
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
   ngOnInit() {
-    /* Der Komponente wurde kein Name gegeben */
     if (this.name == "") {
       this.name = "Temperature without Name";
     }
 
-    /* Verbindung zu NodeRed aufbauen */
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
+    this.changeBackground();                        // remove later
     this.webSocketService.onMessage((data) => {
       console.log('received', data);
       console.log('topic', data.topic);
@@ -41,12 +40,10 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     });
   }
 
-  /* abrufen des Bearbeitungsmodus */
   getbearbeiten() {
     return this.BearbeitungsService.showLoeschen
   }
 
-  /* wechseln der Hintergrundfarbe */
   changeBackground() {
     if (this.temperatur != undefined) {
       if (this.temperatur > 25) {
@@ -71,18 +68,17 @@ export class TemperatureComponent implements OnInit, OnDestroy{
     this.webSocketService.close();
   }
 
-  /* löschen der Komponente aus localStorage */
   deleteClicked() {
     const devices_einlesen = localStorage.getItem(this.raumname);
-    //console.log(this.raumname);
+    console.log(this.raumname);
 
     if (devices_einlesen) {
     this.devices = JSON.parse(devices_einlesen);}
-    //console.log(this.devices);
+    console.log(this.devices);
 
     const deviceIDToRemove = this.device_id;
     const filteredDevices = this.devices.filter((device: { device_id: string | undefined; }) => device.device_id !== deviceIDToRemove);
-    //console.log(this.devices);
+    console.log(this.devices);
     
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<TemperatureComponent> = 

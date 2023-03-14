@@ -1,16 +1,10 @@
-<!-- Div für die Komponente -->
 <div id="divComponents" [ngStyle]="{'background': backgroundLight}">
-	<!-- Name der Light Komponente -->
 	<p id="pName">{{name}}</p>
 	<p></p>
-	<!-- Toggle zum ein- und ausschalten der Leuchte -->
 	<mat-slide-toggle [(ngModel)]="lamp_is_checked" (change)="onToggleChange()"></mat-slide-toggle>
 	<p></p>
-
-	<!-- Button zum Entfernen der Komponente -->
 	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
 		<mat-icon>delete</mat-icon>
 	</button>
-	<!-- Hintergrund für den Delete-Button -->
 	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
 </div>

@@ -21,12 +21,10 @@ export class ServoComponent implements OnInit, OnDestroy {
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) {}
 
   ngOnInit() {
-    /* Der Komponente wurde kein Name gegeben */
     if (this.name == "") {
       this.name = "Servo without Name";
     }
 
-    /* Verbindung zu NodeRed aufbauen */
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
@@ -42,28 +40,25 @@ export class ServoComponent implements OnInit, OnDestroy {
     this.webSocketService.close();
   }
 
-  /* abfragen des Bearbeitungsstatus */
   getbearbeiten() {
     return this.BearbeitungsService.showLoeschen
   }
 
-  /* Slider Value übergeben */
-  onSliderChange(){
+  onChange(){
     this.webSocketService.sendMessage(`{"payload":${this.sliderValue},"topic":"${this.device_id}"}`);
   }
 
-  /* Komponente aus localStorage entfernen */
   deleteClicked(){
     const devices_einlesen = localStorage.getItem(this.raumname);
-    //console.log(this.raumname);
+    console.log(this.raumname);
 
     if (devices_einlesen) {
     this.devices = JSON.parse(devices_einlesen);}
-    //console.log(this.devices);
+    console.log(this.devices);
 
     const deviceIDToRemove = this.device_id;
     const filteredDevices = this.devices.filter((device: { device_id: string | undefined; }) => device.device_id !== deviceIDToRemove);
-    //console.log(this.devices);
+    console.log(this.devices);
     
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<ServoComponent> = 

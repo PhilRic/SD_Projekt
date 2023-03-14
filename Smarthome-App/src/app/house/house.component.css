@@ -1,4 +1,3 @@
-/* Padding für gesamte Seite */
 #divHouse {
 	padding: 20px;
 }
@@ -8,7 +7,6 @@ h1 {
 	font-size: 45px;
 }
 
-/* Raum Hinzufügen Fenster */
 .Hinzufügen{
 	padding: 25px;
 	background: rgba(128, 128, 128, 0.85);
@@ -20,8 +18,7 @@ h1 {
 	font-size: 20px;
 }
 
-/* Raum Hinzufügen Text */
-p#hinzufügen{
+p{
 	font-size: 30px;
 	margin-bottom: 20px;
 }
@@ -37,8 +34,7 @@ button:hover{
 	opacity: 100%;
 }
 
-/* Button zum Hinzufügen von Räumen */
-#HinzufügenFinal{
+#HinzufügeFinal{
 	width: auto;
 	height: auto;
 	margin-left: 17px;

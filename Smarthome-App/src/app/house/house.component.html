@@ -1,4 +1,3 @@
-<!-- Div von gesamtem Haus -->
 <div id="divHouse">
   <h1>Räume</h1>
   <!-- Button zum Einnblenden der hinzufüge option -->
@@ -6,24 +5,19 @@
       <mat-icon>add</mat-icon>
   </button>
 
-  <!-- Button zum Umstellen des Bearbeitungsmodus -->
   <button (click)="changebearbeiten()" mat-fab color="primary">
     <mat-icon>settings</mat-icon>
   </button>
 
-  <!-- Div zum Hinzufügen von Räumen -->
   <div class="Hinzufügen" *ngIf="showRoomHinzufuegen">
-    <p id="hinzufügen">Räume Hinzufügen:</p>
+    <p>Räume Hinzufügen:</p>
     <label for="name">Raumname: </label>
-    <!-- Eingabefeld für den Raumnamen -->
     <mat-form-field id="roomname" appearance="fill">
       <mat-label>Enter Roomname</mat-label>
       <input type="text" #raumname>
     </mat-form-field>
-    <!-- Button zum Hinzufügen des Raumes -->
-    <button id="HinzufügenFinal" mat-raised-button color="primary" (click)="addComponent(raumname.value)">Hinzufügen</button>
+    <button id="HinzufügeFinal" mat-raised-button color="primary" (click)="addComponent(raumname.value)">Hinzufügen</button>
   </div>
-
-  <!-- Container in dem die Generierten Objekte Angeizeigt werden -->
+  <!-- Kontainer in dem die Generierten Objekte Angeizeigt werden -->
   <div #container></div>
 </div>

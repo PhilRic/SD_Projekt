@@ -1,4 +1,3 @@
-/* Design Raum Div */
 #divRoom {
 	padding: 25px;
 	background: rgba(128, 128, 128, 0.85);
@@ -10,7 +9,6 @@
 	max-width: 80%;
 }
 
-/* Name des Raums */
 h1#room {
 	font-family: 'OwnFont';
 	font-size: 30px;
@@ -18,7 +16,6 @@ h1#room {
 	margin-left: 15px;
 }
 
-/* Button Opacity beim hovern */
 button {
 	opacity: 60%;
 }
@@ -27,13 +24,17 @@ button:hover {
 	opacity: 100%;
 }
 
-/* Position Delete-Button */
 button#delete {
 	margin-left: 15px;
 }
 
+#buttonAdd {
+	position: absolute;
+	right: -5px;
+	bottom: -5px;
+	z-index: 10;
+}
 
-/* Änderungen für Select- und Textfeld des Dialogs zum hizufügen von Komponenten */
 mat-select {
 	outline: gray solid 1px;
 	border-radius: 5px;

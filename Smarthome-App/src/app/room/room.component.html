@@ -1,12 +1,10 @@
-<!-- Div eines Raumes -->
 <div id="divRoom">
   <h1 id="room">Raum {{raumname}}</h1>
   
-  <!-- Button zum entfernen des Raumes -->
   <button id="delete" *ngIf="getbearbeiten()" mat-fab color="primary" (click)="deleteClicked()">
     <mat-icon>delete</mat-icon>
   </button>
-  <!-- Button zum Einblenden der Hinzufügen-Option -->
+  <!-- Button zum Einblenden der hinzufüge option -->
   <button *ngIf="getbearbeiten()" (click)="this.showHizufuegenComponent= !this.showHizufuegenComponent" mat-icon-button color="accent" [style]="{'margin-left': '10px'}">
     <mat-icon>add</mat-icon>
   </button>
@@ -17,7 +15,6 @@
   <!-- Komponente zum hinzufügen von Komponenten -->
   <div id="divComponents" *ngIf="this.showHizufuegenComponent && getbearbeiten()">
     <p>
-      <!-- Select des Komponententyp -->
       <mat-select #component placeholder="Choose Component">
         <mat-option value="temperature">Temperature</mat-option>
         <mat-option value="light">Light</mat-option>
@@ -28,25 +25,21 @@
       </mat-select>
     </p>
     <p>
-      <!-- Eingabefeld Komponentenname -->
       <mat-form-field id="name" appearance="fill">
         <mat-label>Enter a name</mat-label>
         <input matInput type="text" #name>
       </mat-form-field>
     </p>
     <p>
-      <!-- Eingabefeld DeviceID -->
       <mat-form-field id="deviceID" appearance="fill">
         <mat-label>Enter Device-ID</mat-label>
         <input matInput type="text" #device_id>
       </mat-form-field>
     </p>
-    <!-- Button zum hinzufügen der Komponente -->
     <button id="buttonDelete" mat-fab color="primary"
       (click)="addComponent(component.value, device_id.value, name.value)" [ngStyle]="{'opacity': opacityAddButton}">
       <mat-icon>add</mat-icon>
     </button>
-    <!-- Hintergrund für Hinzufügen-Button -->
     <div id="divDeleteButton"></div>
   </div>
 </div>

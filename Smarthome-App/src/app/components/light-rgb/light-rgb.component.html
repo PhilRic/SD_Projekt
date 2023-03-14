@@ -1,15 +1,10 @@
-<!-- Div für Komponente -->
 <div id="divComponents">
-	<!-- Name der RGB-Light Komponente -->
 	<p id="pName">{{name}}</p>
-	<!-- Color Picker für Einstellung der Farbe -->
 	<p>Farbauswahl:</p>
 	<input id="colorPick" [(colorPicker)]="selectedColor" [style.background]="selectedColor"  (colorPickerChange)="onColorChange($event)"/>
 
-	<!-- Button zum Entfernen der Komponente -->
 	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
 		<mat-icon>delete</mat-icon>
 	</button>
-	<!-- Hintergrund für Delete-Button -->
 	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
 </div>

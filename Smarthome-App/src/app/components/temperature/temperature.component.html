@@ -1,14 +1,8 @@
-<!-- Div für Komponente -->
 <div id="divComponents" [ngStyle]="{'background': backgroundTemp}">
-	<!-- Name der Temp Komponente -->
 	<p id="pName">{{name}}</p>
-	<!-- Darstellung der Temperatur -->
 	<p id="pTemp">{{temperatur}}°C</p>
-
-	<!-- Button zum Entfernen der Komponente -->
 	<button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
 		<mat-icon>delete</mat-icon>
 	</button>
-	<!-- Hintergrund für den Delete-Button -->
 	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
 </div>

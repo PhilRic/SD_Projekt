@@ -21,18 +21,15 @@ export class LockComponent implements OnInit {
   constructor(private webSocketService: WebSocketServiceService, public BearbeitungsService: BearbeitungsService) { }
 
   ngOnInit(): void {
-    /* Der Komponente wurde kein Name gegeben */
     if (this.name == "") {
       this.name = "Lock without Name";
     }
 
-    /* Verbindung zu NodeRed aufbauen */
     const host = 'ws://raspberrypi.fritz.box:1880/ws/simple';
     this.webSocketService.connect(host);
     this.status = this.webSocketService.status;
   }
 
-  /* abfragen des Bearbeitungsmodus */
   getbearbeiten() {
     return this.BearbeitungsService.showLoeschen
   }
@@ -41,24 +38,22 @@ export class LockComponent implements OnInit {
     this.webSocketService.close();
   }
 
-  /* Button wurde gedrückt */
   buttonClicked() {
     console.log("Button geklickt");
     this.webSocketService.sendMessage(`{"payload": true,"topic":"${this.device_id}"}`);
   }
 
-  /* löschen der Komponente aus localStorage */
   deleteClicked(){
     const devices_einlesen = localStorage.getItem(this.raumname);
-    //console.log(this.raumname);
+    console.log(this.raumname);
 
     if (devices_einlesen) {
     this.devices = JSON.parse(devices_einlesen);}
-    //console.log(this.devices);
+    console.log(this.devices);
 
     const deviceIDToRemove = this.device_id;
     const filteredDevices = this.devices.filter((device: { device_id: string | undefined; }) => device.device_id !== deviceIDToRemove);
-    //console.log(this.devices);
+    console.log(this.devices);
     
     localStorage.setItem(this.raumname, JSON.stringify(filteredDevices));
     const componentRef: ComponentRef<LockComponent> = 
