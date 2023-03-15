@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 export class WebSocketServiceService {
   private webSocket!: WebSocket;
   status: string = 'unknown';
-  
+   hostnew = 'ws://192.168.10.105:1880/ws/simple';
 
   constructor() {}
-
+ 
   public connect(host: string): void {
-    this.webSocket = new WebSocket(host);
+    this.webSocket = new WebSocket(this.hostnew);
     this.webSocket.onopen = () => {
       console.log('connected');
       this.status = 'connected';
@@ -19,7 +19,7 @@ export class WebSocketServiceService {
     this.webSocket.onclose = () => {
       console.log('disconnected');
       this.status = 'not connected';
-      setTimeout(() => this.connect(host), 3000);
+      setTimeout(() => this.connect(this.hostnew), 3000);
     };
   }
 
