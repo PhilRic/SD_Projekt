@@ -1,10 +1,15 @@
+<!-- Div für die Komponente -->
 <div id="divComponents" [ngStyle]="{'background': background}">
+    <!-- Name der Servo Komponente -->
     <p id="pName">{{name}}</p>
-    <input [(ngModel)]="sliderValue" type="range" min="0" max="100" (ngModelChange)="onChange()">
-    <p>Slider-Value: {{ sliderValue }}</p>
+    <!-- Slider zum einstellen des Servos -->
+    <input [(ngModel)]="sliderValue" type="range" min="0" max="100" (ngModelChange)="onSliderChange()">
+    <p>Servo-Value: {{ sliderValue }}</p>
     
+    <!-- Button zum Entfernen der Komponente -->
     <button *ngIf="getbearbeiten()" id="buttonDelete" mat-fab color="primary" (click)="deleteClicked()">
-		<mat-icon>delete</mat-icon>
-	</button>
-	<div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
+		  <mat-icon>delete</mat-icon>
+	  </button>
+    <!-- Hintergrund für den Delete-Button -->
+	  <div *ngIf="getbearbeiten()" id="divDeleteButton"></div>
 </div>

@@ -1,3 +1,4 @@
+/* Design der Komponenten und Hinzufügen-Dialog */
 #divComponents {
 	position: relative;
 	border-radius: 20px;
@@ -10,6 +11,7 @@
 	vertical-align: top;
 }
 
+/* Name der Komponenten */
 #pName {
 	overflow: hidden;
 	white-space: nowrap;
@@ -17,6 +19,7 @@
 	font-size: 20px;
 }
 
+/* Button zum Entfernen der Komponenten */
 #buttonDelete {
 	position: absolute;
 	right: -5px;
@@ -30,6 +33,7 @@
 	opacity: 100%;
 }
 
+/* Delete-Button Hintergrund */
 #divDeleteButton {
 	position: absolute;
 	right: -5px;
